@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeFusion - Learn CSS</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="https://imgur.com/a/PbB69T8" type="image/png">
+    <style>
+        section {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+        section:hover {
+            transform: translateY(-10px);
+            background: #e9e9e9;
+        }
+        h2 {
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            animation: fadeIn 2s ease-in-out;
+        }
+        header h1 {
+            font-size: 3em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            animation: slideIn 1s ease-in-out;
+        }
+        header h1 span {
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+        }
+        header h1 span:hover {
+            transform: scale(1.1);
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        nav li {
+            margin: 0 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        nav a:hover {
+            color: yellow;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        .page-links {
+            background: #e0e0e0;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            white-space: nowrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .page-links a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .page-links a:hover {
+            color: #000;
+            transform: scale(1.1);
+            background-color: #f0f0f0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><span class="contact">Learn</span><span class="Us">CSS</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Back</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <div class="page-links">
+        <a href="#intro">Introduction</a>
+        <a href="#basics">CSS Basics</a>
+        <a href="#selectors">Selectors</a>
+        <a href="#box-model">Box Model</a>
+        <a href="#flexbox">Flexbox</a>
+        <a href="#grid">Grid</a>
+        <a href="#responsive-design">Responsive Design</a>
+        <a href="#animations">Animations</a>
+        <a href="#transitions">Transitions</a>
+        <a href="#practice">Practice Problems</a>
+        <a href="#intermediate">Intermediate</a>
+        <a href="#advanced">Advanced</a>
+        <a href="#bonus-topics">Bonus Topics</a>
+        <a href="#css-functions">CSS Functions</a>
+        <a href="#css-grid-areas">CSS Grid Areas</a>
+        <a href="#css-shapes">CSS Shapes</a>
+        <a href="#css-filters">CSS Filters</a>
+        <a href="#css-blend-modes">CSS Blend Modes</a>
+    </div>
+    <main>
+        <section id="intro">
+            <h2>Introduction to CSS</h2>
+            <p>CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML or XML. CSS describes how elements should be rendered on screen, on paper, in speech, or on other media. It is one of the cornerstone technologies of the World Wide Web, alongside HTML and JavaScript. CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple web pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.</p>
+        </section>
+        <section id="basics">
+            <h2>Basics</h2>
+            <h3>Introduction</h3>
+            <p>CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML or XML. CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.</p>
+            <p>To link CSS to HTML, you can use the <code>&lt;style&gt;</code> tag for internal CSS or the <code>&lt;link&gt;</code> tag for external CSS files.</p>
+            <pre><code>&lt;!-- Internal CSS --&gt;
+&lt;style&gt;
+    body {
+        background-color: lightblue;
+    }
+&lt;/style&gt;
+
+&lt;!-- External CSS --&gt;
+&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre>
+            <p>Basic syntax of CSS:</p>
+            <pre><code>selector {
+    property: value;
+}</code></pre>
+
+            <h3>Selectors</h3>
+            <p>Selectors are used to target HTML elements. Types of selectors include element, class, and ID selectors.</p>
+            <pre><code>/* Element selector */
+p {
+    color: blue;
+}
+
+/* Class selector */
+.highlight {
+    font-weight: bold;
+}
+
+/* ID selector */
+#header {
+    background-color: yellow;
+}</code></pre>
+            <p>Grouping selectors:</p>
+            <pre><code>h1, h2, h3 {
+    color: green;
+}</code></pre>
+            <p>Combining selectors:</p>
+            <pre><code>div p {
+    color: red;
+}</code></pre>
+
+            <h3>Properties and Values</h3>
+            <p>Common properties and values include:</p>
+            <ul>
+                <li>Color properties: <code>color</code>, <code>background-color</code></li>
+                <li>Text properties: <code>font-size</code>, <code>font-family</code>, <code>text-align</code></li>
+                <li>Box model properties: <code>margin</code>, <code>padding</code>, <code>border</code>, <code>width</code>, <code>height</code></li>
+            </ul>
+
+            <h3>Units and Measurements</h3>
+            <p>Units can be absolute or relative:</p>
+            <ul>
+                <li>Absolute units: <code>px</code>, <code>cm</code>, <code>in</code></li>
+                <li>Relative units: <code>em</code>, <code>rem</code>, <code>%</code>, <code>vh</code>, <code>vw</code></li>
+            </ul>
+
+            <h3>Text and Font</h3>
+            <p>Styling text:</p>
+            <pre><code>p {
+    text-decoration: underline;
+    text-transform: uppercase;
+}</code></pre>
+            <p>Font properties:</p>
+            <pre><code>p {
+    font-style: italic;
+    font-weight: bold;
+}</code></pre>
+            <p>Google Fonts integration:</p>
+            <pre><code>&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"&gt;
+
+body {
+    font-family: 'Roboto', sans-serif;
+}</code></pre>
+        </section>
+
+        <section id="selectors">
+            <h2>Selectors</h2>
+            <p>Selectors are patterns used to select the elements you want to style. CSS selectors are used to "find" (or select) the HTML elements you want to style. We can divide CSS selectors into five categories:</p>
+            <ul>
+                <li>Simple selectors (select elements based on name, id, class)</li>
+                <li>Combinator selectors (select elements based on a specific relationship between them)</li>
+                <li>Pseudo-class selectors (select elements based on a certain state)</li>
+                <li>Pseudo-elements selectors (select and style a part of an element)</li>
+                <li>Attribute selectors (select elements based on an attribute or attribute value)</li>
+            </ul>
+        </section>
+        <section id="box-model">
+            <h2>Box Model</h2>
+            <p>The CSS box model is a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content. The box model allows us to add a border around elements, and to define space between elements.</p>
+            <pre><code>/* Example of box model properties */
+div {
+    width: 300px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 20px;
+}</code></pre>
+        </section>
+        <section id="flexbox">
+            <h2>Flexbox</h2>
+            <p>CSS Flexbox Layout is a one-dimensional layout method for laying out items in rows or columns. Items flex to fill additional space and shrink to fit into smaller spaces. For example:</p>
+            <pre><code>/* Container */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Items */
+.item {
+    flex: 1;
+    padding: 10px;
+}</code></pre>
+        </section>
+        <section id="grid">
+            <h2>Grid</h2>
+            <p>CSS Grid Layout is a two-dimensional layout system for the web. It lets you layout items in rows and columns. For example:</p>
+            <pre><code>/* Container */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* Items */
+.item {
+    background-color: lightblue;
+    padding: 20px;
+}</code></pre>
+        </section>
+        <section id="responsive-design">
+            <h2>Responsive Design</h2>
+            <p>Responsive web design makes web pages render well on a variety of devices and window or screen sizes. Media queries are a key component of responsive design. For example:</p>
+            <pre><code>/* Mobile styles */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+}</code></pre>
+        </section>
+        <section id="animations">
+            <h2>Animations</h2>
+            <p>CSS animations make it possible to animate transitions from one CSS style configuration to another. For example:</p>
+            <pre><code>/* Keyframes */
+@keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}
+
+/* Element to animate */
+div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 4s;
+}</code></pre>
+        </section>
+        <section id="transitions">
+            <h2>Transitions</h2>
+            <p>CSS transitions provide a way to control animation speed when changing CSS properties. For example:</p>
+            <pre><code>/* Element to transition */
+div {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    transition: width 2s;
+}
+
+div:hover {
+    width: 200px;
+}</code></pre>
+        </section>
+        <section id="practice">
+            <h2>Practice Problems</h2>
+            <p>Practice problems are essential for reinforcing your understanding of CSS concepts. Here are some practice problems to help you improve your skills:</p>
+            <ul>
+                <li>Create a responsive navigation bar using Flexbox.</li>
+                <li>Design a grid layout for a photo gallery.</li>
+                <li>Implement a hover effect using CSS transitions.</li>
+                <li>Create a keyframe animation for a loading spinner.</li>
+                <li>Style a form with custom input fields and buttons.</li>
+            </ul>
+        </section>
+
+        <section id="intermediate">
+            <h2>Intermediate</h2>
+            <h3>Box Model</h3>
+            <p>The box model consists of margins, borders, padding, and the actual content. It allows us to add a border around elements and define space between elements.</p>
+            <pre><code>div {
+    width: 300px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 20px;
+}</code></pre>
+
+            <h3>Positioning</h3>
+            <p>CSS positioning includes static, relative, absolute, fixed, and sticky positioning. The <code>z-index</code> property controls the stacking order.</p>
+            <pre><code>div {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    z-index: 10;
+}</code></pre>
+
+            <h3>Flexbox</h3>
+            <p>Flexbox is a one-dimensional layout method for laying out items in rows or columns.</p>
+            <pre><code>.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}</code></pre>
+
+            <h3>Grid Layout</h3>
+            <p>CSS Grid Layout is a two-dimensional layout system for the web.</p>
+            <pre><code>.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}</code></pre>
+
+            <h3>Responsive Design</h3>
+            <p>Responsive design makes web pages render well on a variety of devices and window or screen sizes.</p>
+            <pre><code>@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+}</code></pre>
+        </section>
+
+        <section id="advanced">
+            <h2>Advanced</h2>
+            <h3>Transitions and Animations</h3>
+            <p>CSS transitions and animations allow you to animate changes to CSS properties.</p>
+            <pre><code>div {
+    transition: width 2s;
+}
+
+div:hover {
+    width: 200px;
+}
+
+@keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}
+
+div {
+    animation-name: example;
+    animation-duration: 4s;
+}</code></pre>
+
+            <h3>Pseudo-classes and Pseudo-elements</h3>
+            <p>Pseudo-classes and pseudo-elements allow you to style elements based on their state or position in the document.</p>
+            <pre><code>a:hover {
+    color: red;
+}
+
+p::before {
+    content: "Note: ";
+    font-weight: bold;
+}</code></pre>
+
+            <h3>Advanced Selectors</h3>
+            <p>Advanced selectors include attribute selectors, combinators, and the negation pseudo-class.</p>
+            <pre><code>a[target="_blank"] {
+    color: blue;
+}
+
+div > p {
+    color: green;
+}
+
+p:not(.highlight) {
+    color: gray;
+}</code></pre>
+
+            <h3>Custom Properties (CSS Variables)</h3>
+            <p>CSS variables allow you to define reusable values.</p>
+            <pre><code>:root {
+    --main-color: #3498db;
+}
+
+p {
+    color: var(--main-color);
+}</code></pre>
+
+            <h3>Preprocessors</h3>
+            <p>CSS preprocessors like Sass and LESS add features such as variables, nesting, and mixins.</p>
+            <pre><code>$main-color: #3498db;
+
+p {
+    color: $main-color;
+}</code></pre>
+
+            <h3>CSS Frameworks</h3>
+            <p>CSS frameworks like Bootstrap and Tailwind CSS provide pre-designed components and utilities.</p>
+            <pre><code>&lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"&gt;
+
+&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col"&gt;Column 1&lt;/div&gt;
+        &lt;div class="col"&gt;Column 2&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <section id="bonus-topics">
+            <h2>Bonus Topics</h2>
+            <h3>CSS Grid vs. Flexbox</h3>
+            <p>When to use Grid vs. Flexbox and how to combine them.</p>
+
+            <h3>Print Styles</h3>
+            <p>Creating styles for print media using media queries.</p>
+
+            <h3>Cross-browser Compatibility</h3>
+            <p>Using vendor prefixes and tools for testing compatibility.</p>
+
+            <h3>CSS in JS</h3>
+            <p>Using CSS-in-JS libraries like styled-components and Emotion.</p>
+
+            <h3>CSS Functions</h3>
+            <p>CSS functions like <code>calc()</code>, <code>var()</code>, and <code>clamp()</code> provide powerful ways to perform calculations and manage values.</p>
+            <pre><code>/* calc() function */
+div {
+    width: calc(100% - 50px);
+}
+
+/* var() function */
+:root {
+    --main-color: #3498db;
+}
+p {
+    color: var(--main-color);
+}
+
+/* clamp() function */
+h1 {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+}</code></pre>
+
+            <h3>CSS Grid Areas</h3>
+            <p>Using named grid areas to create complex layouts.</p>
+            <pre><code>.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+    grid-gap: 10px;
+}
+
+.header {
+    grid-area: header;
+}
+.sidebar {
+    grid-area: sidebar;
+}
+.content {
+    grid-area: content;
+}
+.footer {
+    grid-area: footer;
+}</code></pre>
+
+            <h3>CSS Shapes</h3>
+            <p>Creating non-rectangular shapes using CSS.</p>
+            <pre><code>.circle {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid blue;
+}</code></pre>
+
+            <h3>CSS Filters</h3>
+            <p>Applying visual effects to elements using CSS filters.</p>
+            <pre><code>img {
+    filter: grayscale(100%);
+}
+
+div {
+    filter: blur(5px);
+}</code></pre>
+
+            <h3>CSS Blend Modes</h3>
+            <p>Using blend modes to create interesting visual effects.</p>
+            <pre><code>div {
+    background: url('image.jpg');
+    mix-blend-mode: multiply;
+}</code></pre>
+        </section>
+    </main>
+    <script src="web.js"></script>
+</body>
+</html>

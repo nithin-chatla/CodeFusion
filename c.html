@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeFusion - Learn C</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="https://imgur.com/a/PbB69T8" type="image/png">
+    <style>
+        section {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+        section:hover {
+            transform: translateY(-10px);
+            background: #e9e9e9;
+        }
+        h2 {
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            animation: fadeIn 2s ease-in-out;
+        }
+        header h1 {
+            font-size: 3em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            animation: slideIn 1s ease-in-out;
+        }
+        header h1 span {
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+        }
+        header h1 span:hover {
+            transform: scale(1.1);
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        nav li {
+            margin: 0 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        nav a:hover {
+            color: yellow;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        .page-links {
+            background: #e0e0e0;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            white-space: nowrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .page-links a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .page-links a:hover {
+            color: #000;
+            transform: scale(1.1);
+            background-color: #f0f0f0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><span class="contact">Learn</span><span class="Us">C</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Back</a></li>
+               
+            </ul>
+        </nav>
+    </header>
+    <div class="page-links">
+        <a href="#intro">Introduction</a>
+        <a href="#basics">C Basics</a>
+        <a href="#data-structures">C Data Structures</a>
+        <a href="#functions">Functions</a>
+        <a href="#pointers">Pointers</a>
+        <a href="#memory-management">Memory Management</a>
+        <a href="#file-io">File I/O</a>
+        <a href="#preprocessor">Preprocessor</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#practice">Practice Problems</a>
+        <a href="#testing">Testing</a>
+        <a href="#debugging">Debugging</a>
+        <a href="#optimization">Optimization</a>
+        <a href="#network-programming">Network Programming</a>
+        <a href="#embedded-systems">Embedded Systems</a>
+        <a href="#security">Security</a>
+        <a href="#concurrency">Concurrency</a>
+        <a href="#inter-process-communication">Inter-Process Communication</a>
+        <a href="#signal-handling">Signal Handling</a>
+        <a href="#dynamic-libraries">Dynamic Libraries</a>
+        <a href="#static-libraries">Static Libraries</a>
+        <a href="#inline-assembly">Inline Assembly</a>
+        <a href="#compiler-directives">Compiler Directives</a>
+        <a href="#unit-testing">Unit Testing</a>
+        <a href="#mocking">Mocking</a>
+        <a href="#profiling">Profiling</a>
+        <a href="#cross-compilation">Cross Compilation</a>
+        <a href="#real-time-systems">Real-Time Systems</a>
+        <a href="#hardware-interfacing">Hardware Interfacing</a>
+        <a href="#secure-coding">Secure Coding</a>
+        <a href="#code-optimization">Code Optimization</a>
+        <a href="#memory-leak-detection">Memory Leak Detection</a>
+        <a href="#debugging-tools">Debugging Tools</a>
+        <a href="#build-systems">Build Systems</a>
+        <a href="#version-control">Version Control</a>
+        <a href="#documentation">Documentation</a>
+    </div>
+    <main>
+        <section id="intro">
+            <h2>Introduction to C</h2>
+            <p>C is a powerful, general-purpose programming language that has been widely used for system and application software. Developed in the early 1970s by Dennis Ritchie at Bell Labs, C has influenced many other programming languages, including C++, Java, and Python. Known for its efficiency and control, C is often used in operating systems, embedded systems, and high-performance applications. Its syntax and structure have become a foundation for many modern programming languages.</p>
+        </section>
+        <section id="basics">
+            <h2>C Basics</h2>
+            <p>In this section, we will cover the basics of C programming, including variables, data types, operators, and control structures. You will learn how to write simple C programs and understand the core concepts of the language.</p>
+            <h3>Variables and Data Types</h3>
+            <p>C supports various data types, including int, float, double, char, and void. Variables are used to store data values. For example:</p>
+            <pre><code>int age = 25;
+float salary = 50000.50;
+char grade = 'A';
+int isEmployed = 1;</code></pre>
+            <h3>Operators</h3>
+            <p>C provides various operators for arithmetic, comparison, and logical operations. For example:</p>
+            <pre><code>int sum = 10 + 20;
+int isEqual = (10 == 20);
+int isAdult = (age > 18) && isEmployed;</code></pre>
+            <h3>Control Structures</h3>
+            <p>Control structures like if-else, switch, for loop, while loop, and do-while loop are used to control the flow of the program. For example:</p>
+            <pre><code>if (age > 18) {
+    printf("Adult\n");
+} else {
+    printf("Not an Adult\n");
+}
+
+for (int i = 0; i < 5; i++) {
+    printf("%d\n", i);
+}</code></pre>
+        </section>
+        <section id="data-structures">
+            <h2>C Data Structures</h2>
+            <p>Data structures are ways to organize and store data in a computer, enabling efficient access and modification. Different data structures are suited for different types of applications. Some common data structures include:</p>
+            <h3>Arrays</h3>
+            <p>Arrays are collections of elements identified by index. For example:</p>
+            <pre><code>int numbers[] = {1, 2, 3, 4, 5};
+for (int i = 0; i < 5; i++) {
+    printf("%d\n", numbers[i]);
+}</code></pre>
+            <h3>Structures</h3>
+            <p>Structures are collections of variables under a single name. For example:</p>
+            <pre><code>struct Person {
+    char name[50];
+    int age;
+};
+
+struct Person person;
+strcpy(person.name, "John");
+person.age = 30;
+printf("Name: %s, Age: %d\n", person.name, person.age);</code></pre>
+        </section>
+        <section id="functions">
+            <h2>Functions</h2>
+            <p>Functions are reusable blocks of code that perform specific tasks. You can define functions, pass arguments to them, and return values. Functions help you organize your code and make it more modular and maintainable. For example:</p>
+            <pre><code>int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(5, 3);
+    printf("Result: %d\n", result);
+    return 0;
+}</code></pre>
+        </section>
+        <section id="pointers">
+            <h2>Pointers</h2>
+            <p>Pointers are variables that store memory addresses. They are a powerful feature in C that allows for efficient manipulation of arrays, structures, and memory. For example:</p>
+            <pre><code>int x = 10;
+int *p = &x;
+printf("Value of x: %d\n", x);
+printf("Address of x: %p\n", p);
+printf("Value at address p: %d\n", *p);</code></pre>
+        </section>
+        <section id="memory-management">
+            <h2>Memory Management</h2>
+            <p>Memory management in C involves dynamically allocating and deallocating memory using functions like malloc(), calloc(), realloc(), and free(). For example:</p>
+            <pre><code>int *arr = (int *)malloc(5 * sizeof(int));
+if (arr == NULL) {
+    printf("Memory allocation failed\n");
+    return 1;
+}
+for (int i = 0; i < 5; i++) {
+    arr[i] = i + 1;
+}
+for (int i = 0; i < 5; i++) {
+    printf("%d\n", arr[i]);
+}
+free(arr);</code></pre>
+        </section>
+        <section id="file-io">
+            <h2>File I/O</h2>
+            <p>File I/O (Input/Output) is used to read from and write to files. For example:</p>
+            <pre><code>FILE *file = fopen("output.txt", "w");
+if (file == NULL) {
+    printf("Error opening file\n");
+    return 1;
+}
+fprintf(file, "Hello, World!\n");
+fclose(file);
+
+file = fopen("output.txt", "r");
+if (file == NULL) {
+    printf("Error opening file\n");
+    return 1;
+}
+char line[100];
+while (fgets(line, sizeof(line), file)) {
+    printf("%s", line);
+}
+fclose(file);</code></pre>
+        </section>
+        <section id="preprocessor">
+            <h2>Preprocessor</h2>
+            <p>The C preprocessor is used to modify the source code before compilation. It handles directives for including files, macro definitions, and conditional compilation. For example:</p>
+            <pre><code>#include &lt;stdio.h&gt;
+#define PI 3.14
+
+int main() {
+    printf("Value of PI: %f\n", PI);
+    return 0;
+}</code></pre>
+        </section>
+        <section id="advanced">
+            <h2>Advanced Topics</h2>
+            <p>In the advanced topics section, we will explore more complex C concepts, such as bitwise operations, dynamic memory allocation, and multi-threading. These topics will help you develop more sophisticated C applications and prepare you for real-world programming challenges.</p>
+            <h3>Bitwise Operations</h3>
+            <p>Bitwise operations are used to manipulate individual bits of data. For example:</p>
+            <pre><code>int a = 5; // 0101 in binary
+int b = 3; // 0011 in binary
+int result = a & b; // AND operation: 0001
+printf("Result: %d\n", result);</code></pre>
+            <h3>Dynamic Memory Allocation</h3>
+            <p>Dynamic memory allocation allows you to allocate memory at runtime. For example:</p>
+            <pre><code>int *arr = (int *)malloc(5 * sizeof(int));
+if (arr == NULL) {
+    printf("Memory allocation failed\n");
+    return 1;
+}
+for (int i = 0; i < 5; i++) {
+    arr[i] = i + 1;
+}
+for (int i = 0; i < 5; i++) {
+    printf("%d\n", arr[i]);
+}
+free(arr);</code></pre>
+            <h3>Multi-threading</h3>
+            <p>Multi-threading allows concurrent execution of two or more threads. For example:</p>
+            <pre><code>#include &lt;pthread.h&gt;
+#include &lt;stdio.h&gt;
+
+void *print_numbers(void *arg) {
+    for (int i = 0; i < 5; i++) {
+        printf("%d\n", i);
+    }
+    return NULL;
+}
+
+int main() {
+    pthread_t thread1, thread2;
+    pthread_create(&thread1, NULL, print_numbers, NULL);
+    pthread_create(&thread2, NULL, print_numbers, NULL);
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+    return 0;
+}</code></pre>
+        </section>
+        <section id="practice">
+            <h2>Practice Problems</h2>
+            <p>Practice problems are essential for reinforcing your understanding of C concepts. Here are some practice problems to help you improve your skills:</p>
+            <ul>
+                <li>Write a C program to find the factorial of a number.</li>
+                <li>Write a C program to check if a number is prime.</li>
+                <li>Write a C program to reverse a string.</li>
+                <li>Write a C program to find the largest element in an array.</li>
+                <li>Write a C program to implement a simple calculator.</li>
+            </ul>
+        </section>
+        <section id="testing">
+            <h2>Testing</h2>
+            <p>Testing is an essential part of software development. C provides libraries like CUnit and Check for writing and running tests. Mocking and patching are techniques used to simulate objects and control their behavior during testing.</p>
+            <pre><code>#include &lt;CUnit/CUnit.h&gt;
+#include &lt;CUnit/Basic.h&gt;
+
+void test_addition() {
+    CU_ASSERT(2 + 3 == 5);
+}
+
+int main() {
+    CU_initialize_registry();
+    CU_pSuite suite = CU_add_suite("Suite_1", 0, 0);
+    CU_add_test(suite, "test_addition", test_addition);
+    CU_basic_set_mode(CU_BRM_VERBOSE);
+    CU_basic_run_tests();
+    CU_cleanup_registry();
+    return 0;
+}</code></pre>
+        </section>
+        <section id="debugging">
+            <h2>Debugging</h2>
+            <p>Debugging is the process of identifying and fixing bugs in your code. Tools like GDB (GNU Debugger) are commonly used for debugging C programs. For example:</p>
+            <pre><code>gcc -g -o myprogram myprogram.c
+gdb myprogram
+(gdb) run
+(gdb) break main
+(gdb) step
+(gdb) print variable_name
+(gdb) continue</code></pre>
+        </section>
+        <section id="optimization">
+            <h2>Optimization</h2>
+            <p>Optimization involves improving the performance and efficiency of your code. Techniques include loop unrolling, inlining functions, and using efficient algorithms and data structures. Compiler optimization flags can also be used. For example:</p>
+            <pre><code>gcc -O2 -o myprogram myprogram.c</code></pre>
+        </section>
+        <section id="network-programming">
+            <h2>Network Programming</h2>
+            <p>Network programming involves writing programs that communicate over a network. The socket API is commonly used for network programming in C. For example:</p>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;arpa/inet.h&gt;
+
+int main() {
+    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    struct sockaddr_in server_addr;
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(8080);
+    server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+
+    connect(sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr));
+    send(sockfd, "Hello, Server!", strlen("Hello, Server!"), 0);
+    close(sockfd);
+    return 0;
+}</code></pre>
+        </section>
+        <section id="embedded-systems">
+            <h2>Embedded Systems</h2>
+            <p>Embedded systems programming involves writing software for devices with limited resources. C is widely used in embedded systems due to its efficiency and control over hardware. For example, programming a microcontroller:</p>
+            <pre><code>#include &lt;avr/io.h&gt;
+#include &lt;util/delay.h&gt;
+
+int main(void) {
+    DDRB |= (1 << PB0); // Set PB0 as output
+    while (1) {
+        PORTB ^= (1 << PB0); // Toggle PB0
+        _delay_ms(1000); // Delay 1 second
+    }
+    return 0;
+}</code></pre>
+        </section>
+        <section id="security">
+            <h2>Security</h2>
+            <p>Security in C programming involves writing code that is free from vulnerabilities such as buffer overflows, integer overflows, and format string vulnerabilities. Techniques include input validation, using safe functions, and employing static analysis tools. For example:</p>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char buffer[10];
+    strncpy(buffer, "This is a long string", sizeof(buffer) - 1);
+    buffer[sizeof(buffer) - 1] = '\0';
+    printf("%s\n", buffer);
+    return 0;
+}</code></pre>
+        </section>
+        <section id="concurrency">
+            <h2>Concurrency</h2>
+            <p>Concurrency in C involves managing multiple tasks simultaneously. Techniques include using threads, mutexes, and semaphores. For example:</p>
+            <pre><code>#include &lt;pthread.h&gt;
+#include &lt;stdio.h&gt;
+
+void *print_numbers(void *arg) {
+    for (int i = 0; i < 5; i++) {
+        printf("%d\n", i);
+    }
+    return NULL;
+}
+
+int main() {
+    pthread_t thread1, thread2;
+    pthread_create(&thread1, NULL, print_numbers, NULL);
+    pthread_create(&thread2, NULL, print_numbers, NULL);
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+    return 0;
+}</code></pre>
+        </section>
+        <section id="inter-process-communication">
+            <h2>Inter-Process Communication</h2>
+            <p>Inter-Process Communication (IPC) allows processes to communicate with each other. Techniques include pipes, message queues, and shared memory. For example:</p>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+
+int main() {
+    int fd[2];
+    pipe(fd);
+    if (fork() == 0) {
+        close(fd[0]);
+        write(fd[1], "Hello, Parent!", 14);
+        close(fd[1]);
+    } else {
+        close(fd[1]);
+        char buffer[15];
+        read(fd[0], buffer, 14);
+        buffer[14] = '\0';
+        printf("%s\n", buffer);
+        close(fd[0]);
+    }
+    return 0;
+}</code></pre>
+        </section>
+        <section id="signal-handling">
+            <h2>Signal Handling</h2>
+            <p>Signal handling allows a program to handle asynchronous events. For example:</p>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;signal.h&gt;
+
+void handle_signal(int signal) {
+    printf("Caught signal %d\n", signal);
+}
+
+int main() {
+    signal(SIGINT, handle_signal);
+    while (1) {
+        printf("Running...\n");
+        sleep(1);
+    }
+    return 0;
+}</code></pre>
+        </section>
+        <section id="dynamic-libraries">
+            <h2>Dynamic Libraries</h2>
+            <p>Dynamic libraries are shared libraries that are loaded at runtime. For example:</p>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;dlfcn.h&gt;
+
+int main() {
+    void *handle = dlopen("libm.so", RTLD_LAZY);
+    double (*cosine)(double) = dlsym(handle, "cos");
+    printf("%f\n", cosine(2.0));
+    dlclose(handle);
+    return 0;
+}</code></pre>
+        </section>
+        <section id="static-libraries">
+            <h2>Static Libraries</h2>
+            <p>Static libraries are linked at compile time. For example:</p>
+            <pre><code>// Compile with: gcc -o myprogram myprogram.c -L. -lmylib
+#include &lt;stdio.h&gt;
+#include "mylib.h"
+
+int main() {
+    printf("%d\n", add(2, 3));
+    return 0;
+}</code></pre>
+        </section>
+        <section id="inline-assembly">
+            <h2>Inline Assembly</h2>
+            <p>Inline assembly allows you to embed assembly code within C code. For example:</p>
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 10, b = 20, result;
+    asm("add %1, %2; mov %0, %2"
+        : "=r"(result)
+        : "r"(a), "r"(b));
+    printf("Result: %d\n", result);
+    return 0;
+}</code></pre>
+        </section>
+        <section id="compiler-directives">
+            <h2>Compiler Directives</h2>
+            <p>Compiler directives provide instructions to the compiler. For example:</p>
+            <pre><code>#include &lt;stdio.h&gt;
+
+#define DEBUG 1
+
+int main() {
+    #if DEBUG
+    printf("Debug mode\n");
+    #endif
+    printf("Hello, World!\n");
+    return 0;
+}</code></pre>
+        </section>
+        <section id="unit-testing">
+            <h2>Unit Testing</h2>
+            <p>Unit testing involves testing individual units of code. For example, using CUnit:</p>
+            <pre><code>#include &lt;CUnit/CUnit.h&gt;
+#include &lt;CUnit/Basic.h&gt;
+
+void test_addition() {
+    CU_ASSERT(2 + 3 == 5);
+}
+
+int main() {
+    CU_initialize_registry();
+    CU_pSuite suite = CU_add_suite("Suite_1", 0, 0);
+    CU_add_test(suite, "test_addition", test_addition);
+    CU_basic_set_mode(CU_BRM_VERBOSE);
+    CU_basic_run_tests();
+    CU_cleanup_registry();
+    return 0;
+}</code></pre>
+        </section>
+        <section id="mocking">
+            <h2>Mocking</h2>
+            <p>Mocking involves simulating objects to test code. For example, using CMocka:</p>
+            <pre><code>#include &lt;stdarg.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;setjmp.h&gt;
+#include &lt;cmocka.h&gt;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+void test_add(void **state) {
+    assert_int_equal(add(2, 3), 5);
+}
+
+int main() {
+    const struct CMUnitTest tests[] = {
+        cmocka_unit_test(test_add),
+    };
+    return cmocka_run_group_tests(tests, NULL, NULL);
+}</code></pre>
+        </section>
+        <section id="profiling">
+            <h2>Profiling</h2>
+            <p>Profiling involves analyzing the performance of your code. Tools like gprof can be used. For example:</p>
+            <pre><code>gcc -pg -o myprogram myprogram.c
+./myprogram
+gprof myprogram gmon.out > analysis.txt</code></pre>
+        </section>
+        <section id="cross-compilation">
+            <h2>Cross Compilation</h2>
+            <p>Cross compilation involves compiling code for a different platform. For example:</p>
+            <pre><code>arm-linux-gnueabi-gcc -o myprogram myprogram.c</code></pre>
+        </section>
+        <section id="real-time-systems">
+            <h2>Real-Time Systems</h2>
+            <p>Real-time systems require precise timing and scheduling. For example:</p>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+
+int main() {
+    struct timespec ts;
+    ts.tv_sec = 1;
+    ts.tv_nsec = 0;
+    nanosleep(&ts, NULL);
+    printf("Slept for 1 second\n");
+    return 0;
+}</code></pre>
+        </section>
+        <section id="hardware-interfacing">
+            <h2>Hardware Interfacing</h2>
+            <p>Hardware interfacing involves interacting with hardware components. For example:</p>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;unistd.h&gt;
+
+int main() {
+    int fd = open("/dev/ttyS0", O_RDWR);
+    if (fd == -1) {
+        perror("open");
+        return 1;
+    }
+    write(fd, "Hello, UART!", 12);
+    close(fd);
+    return 0;
+}</code></pre>
+        </section>
+        <section id="secure-coding">
+            <h2>Secure Coding</h2>
+            <p>Secure coding involves writing code that is free from vulnerabilities. For example:</p>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char buffer[10];
+    strncpy(buffer, "This is a long string", sizeof(buffer) - 1);
+    buffer[sizeof(buffer) - 1] = '\0';
+    printf("%s\n", buffer);
+    return 0;
+}</code></pre>
+        </section>
+        <section id="code-optimization">
+            <h2>Code Optimization</h2>
+            <p>Code optimization involves improving the performance of your code. Techniques include loop unrolling, inlining functions, and using efficient algorithms. For example:</p>
+            <pre><code>gcc -O2 -o myprogram myprogram.c</code></pre>
+        </section>
+        <section id="memory-leak-detection">
+            <h2>Memory Leak Detection</h2>
+            <p>Memory leak detection involves identifying and fixing memory leaks. Tools like Valgrind can be used. For example:</p>
+            <pre><code>valgrind --leak-check=full ./myprogram</code></pre>
+        </section>
+        <section id="debugging-tools">
+            <h2>Debugging Tools</h2>
+            <p>Debugging tools help identify and fix bugs in your code. Tools include GDB, LLDB, and Valgrind. For example:</p>
+            <pre><code>gcc -g -o myprogram myprogram.c
+gdb myprogram
+(gdb) run
+(gdb) break main
+(gdb) step
+(gdb) print variable_name
+(gdb) continue</code></pre>
+        </section>
+        <section id="build-systems">
+            <h2>Build Systems</h2>
+            <p>Build systems automate the process of compiling and linking code. Tools include Make, CMake, and Ninja. For example, using Make:</p>
+            <pre><code># Makefile
+all: myprogram
+
+myprogram: myprogram.o
+    gcc -o myprogram myprogram.o
+
+myprogram.o: myprogram.c
+    gcc -c myprogram.c
+
+clean:
+    rm -f myprogram myprogram.o</code></pre>
+        </section>
+        <section id="version-control">
+            <h2>Version Control</h2>
+            <p>Version control systems help manage changes to your code. Tools include Git, SVN, and Mercurial. For example, using Git:</p>
+            <pre><code>git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/username/repo.git
+git push -u origin master</code></pre>
+        </section>
+        <section id="documentation">
+            <h2>Documentation</h2>
+            <p>Documentation helps others understand and use your code. Tools include Doxygen and Sphinx. For example, using Doxygen:</p>
+            <pre><code>/**
+ * @file myprogram.c
+ * @brief This is a simple C program.
+ */
+
+#include &lt;stdio.h&gt;
+
+/**
+ * @brief Main function.
+ * @return int
+ */
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}</code></pre>
+        </section>
+    </main>
+    <script src="web.js"></script>
+</body>
+</html>

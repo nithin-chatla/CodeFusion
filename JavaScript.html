@@ -1,0 +1,793 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeFusion - Learn JavaScript</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="https://imgur.com/a/PbB69T8" type="image/png">
+    <style>
+        section {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+        section:hover {
+            transform: translateY(-10px);
+            background: #e9e9e9;
+        }
+        h2 {
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            animation: fadeIn 2s ease-in-out;
+        }
+        header h1 {
+            font-size: 3em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            animation: slideIn 1s ease-in-out;
+        }
+        header h1 span {
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+        }
+        header h1 span:hover {
+            transform: scale(1.1);
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        nav li {
+            margin: 0 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        nav a:hover {
+            color: yellow;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        .page-links {
+            background: #e0e0e0;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            white-space: nowrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .page-links a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .page-links a:hover {
+            color: #000;
+            transform: scale(1.1);
+            background-color: #f0f0f0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><span class="contact">Learn</span><span class="Us">JavaScript</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Back</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <div class="page-links">
+        <a href="#intro">Introduction</a>
+        <a href="#basics">JavaScript Basics</a>
+        <a href="#syntax-variables">Syntax and Variables</a>
+        <a href="#operators">Operators</a>
+        <a href="#control-flow">Control Flow</a>
+        <a href="#functions">Functions</a>
+        <a href="#objects-arrays">Objects and Arrays</a>
+        <a href="#dom">DOM Manipulation</a>
+        <a href="#advanced-functions">Advanced Functions</a>
+        <a href="#es6">ES6 Features</a>
+        <a href="#async-js">Asynchronous JavaScript</a>
+        <a href="#form-validation">Form Validation</a>
+        <a href="#advanced-dom">Advanced DOM Manipulation</a>
+        <a href="#design-patterns">JavaScript Design Patterns</a>
+        <a href="#web-apis">Web APIs</a>
+        <a href="#error-handling">Error Handling and Debugging</a>
+        <a href="#performance">Performance Optimization</a>
+        <a href="#testing">Testing</a>
+        <a href="#frameworks">JavaScript Frameworks</a>
+        <a href="#nodejs">Node.js</a>
+        <a href="#practice">Practice Problems</a>
+    </div>
+    <main>
+        <section id="intro">
+            <h2>Introduction to JavaScript</h2>
+            <p>JavaScript is a versatile, high-level programming language that is primarily used for creating interactive and dynamic content on the web. It was created by Brendan Eich in 1995 and has since become one of the core technologies of the World Wide Web, alongside HTML and CSS. JavaScript enables developers to create responsive user interfaces, handle user interactions, and manipulate the Document Object Model (DOM) to update the content of web pages dynamically. It is supported by all modern web browsers and can be used for both client-side and server-side development. With the advent of frameworks and libraries like React, Angular, and Vue.js, JavaScript has become an essential tool for building modern web applications. Additionally, the introduction of Node.js has extended JavaScript's capabilities to server-side development, allowing developers to use a single language for both front-end and back-end development. JavaScript's flexibility, ease of use, and extensive ecosystem make it a popular choice for web developers worldwide.</p>
+        </section>
+        <section id="basics">
+            <h2>Basics</h2>
+            <h3>Introduction</h3>
+            <p>JavaScript is a versatile, high-level programming language that is primarily used for creating interactive and dynamic content on the web. It was created by Brendan Eich in 1995 and has since become one of the core technologies of the World Wide Web, alongside HTML and CSS. JavaScript enables developers to create responsive user interfaces, handle user interactions, and manipulate the Document Object Model (DOM) to update the content of web pages dynamically. It is supported by all modern web browsers and can be used for both client-side and server-side development. With the advent of frameworks and libraries like React, Angular, and Vue.js, JavaScript has become an essential tool for building modern web applications. Additionally, the introduction of Node.js has extended JavaScript's capabilities to server-side development, allowing developers to use a single language for both front-end and back-end development. JavaScript's flexibility, ease of use, and extensive ecosystem make it a popular choice for web developers worldwide.</p>
+            <h3>Setting up the environment</h3>
+            <p>You can write and run JavaScript code in various environments, including the browser console and online editors like CodePen and JSFiddle. To open the browser console, press <code>F12</code> or <code>Ctrl+Shift+I</code> and navigate to the "Console" tab.</p>
+            <h3>Writing your first JavaScript program</h3>
+            <pre><code>console.log("Hello, World!");</code></pre>
+
+            <h3>Syntax and Variables</h3>
+            <p>JavaScript syntax is the set of rules that define a correctly structured JavaScript program. Variables are used to store data values. You can declare variables using <code>var</code>, <code>let</code>, or <code>const</code>.</p>
+            <pre><code>let name = "Alice";
+const age = 25;
+var isStudent = true;</code></pre>
+            <p>JavaScript supports various data types, including strings, numbers, booleans, arrays, and objects.</p>
+            <pre><code>let message = "Hello, World!";
+let count = 42;
+let isActive = false;
+let fruits = ["apple", "banana", "cherry"];
+let person = { name: "John", age: 30 };</code></pre>
+
+            <h3>Operators</h3>
+            <p>JavaScript provides various operators for arithmetic, comparison, logical, and assignment operations.</p>
+            <h4>Arithmetic operators</h4>
+            <pre><code>let sum = 10 + 5;
+let difference = 10 - 5;
+let product = 10 * 5;
+let quotient = 10 / 5;
+let remainder = 10 % 3;</code></pre>
+            <h4>Comparison operators</h4>
+            <pre><code>let isEqual = (10 == 10);
+let isNotEqual = (10 != 5);
+let isGreater = (10 > 5);
+let isLess = (10 < 15);</code></pre>
+            <h4>Logical operators</h4>
+            <pre><code>let and = (true && false);
+let or = (true || false);
+let not = !true;</code></pre>
+            <h4>Assignment operators</h4>
+            <pre><code>let x = 10;
+x += 5; // x = x + 5
+x -= 5; // x = x - 5
+x *= 5; // x = x * 5
+x /= 5; // x = x / 5</code></pre>
+
+            <h3>Control Flow</h3>
+            <p>Control flow statements allow you to control the execution of your code based on conditions and loops.</p>
+            <h4>Conditionals</h4>
+            <pre><code>if (age > 18) {
+    console.log("Adult");
+} else if (age > 12) {
+    console.log("Teenager");
+} else {
+    console.log("Child");
+}
+
+switch (day) {
+    case 1:
+        console.log("Monday");
+        break;
+    case 2:
+        console.log("Tuesday");
+        break;
+    default:
+        console.log("Other day");
+}</code></pre>
+            <h4>Loops</h4>
+            <pre><code>for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+let j = 0;
+while (j < 5) {
+    console.log(j);
+    j++;
+}
+
+let k = 0;
+do {
+    console.log(k);
+    k++;
+} while (k < 5);</code></pre>
+            <h4>Break and continue statements</h4>
+            <pre><code>for (let i = 0; i < 5; i++) {
+    if (i === 3) {
+        break;
+    }
+    console.log(i);
+}
+
+for (let i = 0; i < 5; i++) {
+    if (i === 3) {
+        continue;
+    }
+    console.log(i);
+}</code></pre>
+
+            <h3>Functions</h3>
+            <p>Functions are reusable blocks of code that perform specific tasks. You can define functions using the <code>function</code> keyword or as function expressions and arrow functions.</p>
+            <pre><code>function greet(name) {
+    return "Hello, " + name;
+}
+
+let greet = function(name) {
+    return "Hello, " + name;
+};
+
+let greet = (name) => "Hello, " + name;</code></pre>
+            <p>Functions can have parameters and return values. The scope of a variable determines where it can be accessed in your code.</p>
+            <pre><code>function add(a, b) {
+    return a + b;
+}
+
+let result = add(2, 3); // 5
+
+let globalVar = "I am global";
+
+function testScope() {
+    let localVar = "I am local";
+    console.log(globalVar); // Accessible
+    console.log(localVar); // Accessible
+}
+
+console.log(globalVar); // Accessible
+console.log(localVar); // Error: localVar is not defined</code></pre>
+
+            <h3>Objects and Arrays</h3>
+            <p>Objects and arrays are fundamental data structures in JavaScript. Objects are collections of key-value pairs, while arrays are ordered collections of elements.</p>
+            <pre><code>let person = {
+    name: "John",
+    age: 30,
+    greet: function() {
+        console.log("Hello, " + this.name);
+    }
+};
+
+person.greet(); // Hello, John
+
+let fruits = ["apple", "banana", "cherry"];
+fruits.push("date");
+fruits.pop();
+fruits.shift();
+fruits.unshift("apricot");
+
+let numbers = [1, 2, 3, 4, 5];
+let doubled = numbers.map(n => n * 2);
+let evens = numbers.filter(n => n % 2 === 0);</code></pre>
+        </section>
+
+        <section id="intermediate">
+            <h2>Intermediate</h2>
+            <h3>DOM Manipulation</h3>
+            <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the structure of a document as a tree of nodes, allowing developers to manipulate the content and structure of web pages dynamically.</p>
+            <h4>Selecting elements</h4>
+            <pre><code>let element = document.getElementById("myElement");
+let elements = document.getElementsByClassName("myClass");
+let tags = document.getElementsByTagName("div");
+let query = document.querySelector(".myClass");
+let queries = document.querySelectorAll(".myClass");</code></pre>
+            <h4>Modifying elements</h4>
+            <pre><code>element.innerHTML = "Hello, World!";
+element.textContent = "Hello, World!";
+element.setAttribute("class", "newClass");
+element.style.color = "red";</code></pre>
+            <h4>Creating and removing elements</h4>
+            <pre><code>let newElement = document.createElement("div");
+newElement.textContent = "New Element";
+document.body.appendChild(newElement);
+
+let parentElement = document.getElementById("parent");
+let childElement = document.getElementById("child");
+parentElement.removeChild(childElement);</code></pre>
+            <h4>Event handling</h4>
+            <pre><code>let button = document.getElementById("myButton");
+button.addEventListener("click", function() {
+    console.log("Button clicked!");
+});</code></pre>
+
+            <h3>Advanced Functions</h3>
+            <h4>Callbacks</h4>
+            <pre><code>function fetchData(callback) {
+    setTimeout(() => {
+        callback("Data fetched");
+    }, 1000);
+}
+
+fetchData(data => {
+    console.log(data);
+});</code></pre>
+            <h4>Closures</h4>
+            <pre><code>function createCounter() {
+    let count = 0;
+    return function() {
+        count++;
+        return count;
+    };
+}
+
+let counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2</code></pre>
+            <h4>Higher-order functions</h4>
+            <pre><code>function applyOperation(a, b, operation) {
+    return operation(a, b);
+}
+
+let sum = applyOperation(2, 3, (x, y) => x + y);
+let product = applyOperation(2, 3, (x, y) => x * y);</code></pre>
+            <h4>IIFE (Immediately Invoked Function Expressions)</h4>
+            <pre><code>(function() {
+    console.log("IIFE executed");
+})();</code></pre>
+
+            <h3>ES6 Features</h3>
+            <h4>Template literals</h4>
+            <pre><code>let name = "Alice";
+let message = `Hello, ${name}!`;
+console.log(message);</code></pre>
+            <h4>Destructuring</h4>
+            <pre><code>let [a, b] = [1, 2];
+let { name, age } = { name: "John", age: 30 };
+console.log(a, b, name, age);</code></pre>
+            <h4>Spread and rest operators</h4>
+            <pre><code>let arr1 = [1, 2, 3];
+let arr2 = [...arr1, 4, 5];
+console.log(arr2);
+
+function sum(...numbers) {
+    return numbers.reduce((acc, num) => acc + num, 0);
+}
+console.log(sum(1, 2, 3, 4));</code></pre>
+            <h4>Classes and inheritance</h4>
+            <pre><code>class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(`${this.name} makes a noise.`);
+    }
+}
+
+class Dog extends Animal {
+    speak() {
+        console.log(`${this.name} barks.`);
+    }
+}
+
+let dog = new Dog("Rex");
+dog.speak(); // Rex barks.</code></pre>
+            <h4>Modules (import/export)</h4>
+            <pre><code>// math.js
+export function add(a, b) {
+    return a + b;
+}
+
+// main.js
+import { add } from "./math.js";
+console.log(add(2, 3));</code></pre>
+
+            <h3>Asynchronous JavaScript</h3>
+            <h4>Promises</h4>
+            <pre><code>let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Data fetched");
+    }, 1000);
+});
+
+promise.then(data => {
+    console.log(data);
+}).catch(error => {
+    console.error(error);
+});</code></pre>
+            <h4>Async/Await</h4>
+            <pre><code>async function fetchData() {
+    try {
+        let response = await fetch("https://api.example.com/data");
+        let data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+fetchData();</code></pre>
+            <h4>Fetch API</h4>
+            <pre><code>fetch("https://api.example.com/data")
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error("Error:", error));</code></pre>
+            <h4>Error handling</h4>
+            <pre><code>try {
+    let result = 10 / 0;
+} catch (error) {
+    console.error("Error:", error);
+} finally {
+    console.log("This block always executes");
+}</code></pre>
+
+            <h3>Form Validation</h3>
+            <h4>Basic form validation techniques</h4>
+            <pre><code>let form = document.getElementById("myForm");
+form.addEventListener("submit", function(event) {
+    let input = document.getElementById("myInput").value;
+    if (input === "") {
+        alert("Input cannot be empty");
+        event.preventDefault();
+    }
+});</code></pre>
+            <h4>Using regular expressions</h4>
+            <pre><code>let email = document.getElementById("email").value;
+let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+if (!emailPattern.test(email)) {
+    alert("Invalid email address");
+}</code></pre>
+            <h4>Custom validation messages</h4>
+            <pre><code>let input = document.getElementById("myInput");
+input.setCustomValidity("This field cannot be empty");
+input.addEventListener("input", function() {
+    if (input.value !== "") {
+        input.setCustomValidity("");
+    }
+});</code></pre>
+        </section>
+
+        <section id="advanced">
+            <h2>Advanced</h2>
+            <h3>Advanced DOM Manipulation</h3>
+            <h4>Advanced selectors</h4>
+            <pre><code>let elements = document.querySelectorAll("div > p:first-child");
+elements.forEach(element => {
+    console.log(element);
+});</code></pre>
+            <h4>Event delegation</h4>
+            <pre><code>document.getElementById("parent").addEventListener("click", function(event) {
+    if (event.target && event.target.matches("button.myButton")) {
+        console.log("Button clicked!");
+    }
+});</code></pre>
+            <h4>Performance optimization</h4>
+            <pre><code>let fragment = document.createDocumentFragment();
+for (let i = 0; i < 1000; i++) {
+    let div = document.createElement("div");
+    div.textContent = "Item " + i;
+    fragment.appendChild(div);
+}
+document.body.appendChild(fragment);</code></pre>
+
+            <h3>JavaScript Design Patterns</h3>
+            <h4>Module pattern</h4>
+            <pre><code>let myModule = (function() {
+    let privateVar = "I am private";
+    function privateMethod() {
+        console.log(privateVar);
+    }
+    return {
+        publicMethod: function() {
+            privateMethod();
+        }
+    };
+})();
+
+myModule.publicMethod();</code></pre>
+            <h4>Revealing module pattern</h4>
+            <pre><code>let myModule = (function() {
+    let privateVar = "I am private";
+    function privateMethod() {
+        console.log(privateVar);
+    }
+    function publicMethod() {
+        privateMethod();
+    }
+    return {
+        publicMethod: publicMethod
+    };
+})();
+
+myModule.publicMethod();</code></pre>
+            <h4>Singleton pattern</h4>
+            <pre><code>let Singleton = (function() {
+    let instance;
+    function createInstance() {
+        let object = new Object("I am the instance");
+        return object;
+    }
+    return {
+        getInstance: function() {
+            if (!instance) {
+                instance = createInstance();
+            }
+            return instance;
+        }
+    };
+})();
+
+let instance1 = Singleton.getInstance();
+let instance2 = Singleton.getInstance();
+console.log(instance1 === instance2); // true</code></pre>
+            <h4>Observer pattern</h4>
+            <pre><code>function Subject() {
+    this.observers = [];
+}
+
+Subject.prototype = {
+    subscribe: function(fn) {
+        this.observers.push(fn);
+    },
+    unsubscribe: function(fn) {
+        this.observers = this.observers.filter(observer => observer !== fn);
+    },
+    notify: function(data) {
+        this.observers.forEach(observer => observer(data));
+    }
+};
+
+let subject = new Subject();
+function observer1(data) {
+    console.log("Observer 1: " + data);
+}
+function observer2(data) {
+    console.log("Observer 2: " + data);
+}
+subject.subscribe(observer1);
+subject.subscribe(observer2);
+subject.notify("Hello, Observers!");</code></pre>
+
+            <h3>Web APIs</h3>
+            <h4>Geolocation API</h4>
+            <pre><code>navigator.geolocation.getCurrentPosition(function(position) {
+    console.log("Latitude: " + position.coords.latitude);
+    console.log("Longitude: " + position.coords.longitude);
+});</code></pre>
+            <h4>Canvas API</h4>
+            <pre><code>let canvas = document.getElementById("myCanvas");
+let ctx = canvas.getContext("2d");
+ctx.fillStyle = "red";
+ctx.fillRect(10, 10, 100, 100);</code></pre>
+            <h4>Web Storage API (localStorage and sessionStorage)</h4>
+            <pre><code>localStorage.setItem("name", "Alice");
+let name = localStorage.getItem("name");
+console.log(name);
+
+sessionStorage.setItem("session", "active");
+let session = sessionStorage.getItem("session");
+console.log(session);</code></pre>
+
+            <h3>Error Handling and Debugging</h3>
+            <h4>try, catch, finally</h4>
+            <pre><code>try {
+    let result = 10 / 0;
+} catch (error) {
+    console.error("Error:", error);
+} finally {
+    console.log("This block always executes");
+}</code></pre>
+        </section>
+        <section id="dom">
+            <h2>DOM Manipulation</h2>
+            <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the structure of a document as a tree of nodes, allowing developers to manipulate the content and structure of web pages dynamically. In this section, you will learn how to use JavaScript to interact with the DOM and update the content of web pages.</p>
+            <h3>Selecting Elements</h3>
+            <p>You can use various methods to select elements in the DOM, such as getElementById, getElementsByClassName, getElementsByTagName, querySelector, and querySelectorAll. For example:</p>
+            <pre><code>let element = document.getElementById("myElement");
+let elements = document.getElementsByClassName("myClass");
+let tags = document.getElementsByTagName("div");
+let query = document.querySelector(".myClass");
+let queries = document.querySelectorAll(".myClass");</code></pre>
+            <h3>Modifying Elements</h3>
+            <p>You can modify the content and attributes of elements using properties like innerHTML, textContent, and setAttribute. For example:</p>
+            <pre><code>element.innerHTML = "Hello, World!";
+element.textContent = "Hello, World!";
+element.setAttribute("class", "newClass");</code></pre>
+            <h3>Creating and Removing Elements</h3>
+            <p>You can create and remove elements using methods like createElement, appendChild, and removeChild. For example:</p>
+            <pre><code>let newElement = document.createElement("div");
+newElement.textContent = "New Element";
+document.body.appendChild(newElement);
+
+let parentElement = document.getElementById("parent");
+let childElement = document.getElementById("child");
+parentElement.removeChild(childElement);</code></pre>
+        </section>
+        <section id="events">
+            <h2>Event Handling</h2>
+            <p>Event handling is a crucial aspect of JavaScript programming, allowing developers to respond to user interactions such as clicks, key presses, and mouse movements. In this section, you will learn how to use event listeners to handle events and create interactive web pages.</p>
+            <h3>Adding Event Listeners</h3>
+            <p>You can add event listeners to elements using the addEventListener method. For example:</p>
+            <pre><code>let button = document.getElementById("myButton");
+button.addEventListener("click", function() {
+    console.log("Button clicked!");
+});</code></pre>
+            <h3>Removing Event Listeners</h3>
+            <p>You can remove event listeners using the removeEventListener method. For example:</p>
+            <pre><code>function handleClick() {
+    console.log("Button clicked!");
+}
+
+button.addEventListener("click", handleClick);
+button.removeEventListener("click", handleClick);</code></pre>
+            <h3>Event Propagation</h3>
+            <p>Event propagation refers to the way events flow through the DOM. There are three phases: capturing, target, and bubbling. You can control event propagation using methods like stopPropagation and preventDefault. For example:</p>
+            <pre><code>button.addEventListener("click", function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    console.log("Button clicked!");
+});</code></pre>
+        </section>
+        <section id="ajax">
+            <h2>AJAX and Fetch API</h2>
+            <p>AJAX (Asynchronous JavaScript and XML) is a technique for creating dynamic and asynchronous web applications. The Fetch API is a modern alternative to XMLHttpRequest for making HTTP requests. In this section, you will learn how to use AJAX and the Fetch API to retrieve data from a server and update the content of web pages dynamically.</p>
+            <h3>Using XMLHttpRequest</h3>
+            <p>You can use the XMLHttpRequest object to make HTTP requests. For example:</p>
+            <pre><code>let xhr = new XMLHttpRequest();
+xhr.open("GET", "https://api.example.com/data", true);
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        let data = JSON.parse(xhr.responseText);
+        console.log(data);
+    }
+};
+xhr.send();</code></pre>
+            <h3>Using Fetch API</h3>
+            <p>The Fetch API provides a more modern and flexible way to make HTTP requests. For example:</p>
+            <pre><code>fetch("https://api.example.com/data")
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error("Error:", error));</code></pre>
+        </section>
+        <section id="es6">
+            <h2>ES6 and Beyond</h2>
+            <p>ECMAScript 6 (ES6) introduced several new features and improvements to JavaScript, making it more powerful and easier to use. In this section, you will learn about some of the key features of ES6 and beyond, including arrow functions, template literals, destructuring, and modules.</p>
+            <h3>Arrow Functions</h3>
+            <p>Arrow functions provide a more concise syntax for writing functions. For example:</p>
+            <pre><code>let add = (a, b) => a + b;
+console.log(add(2, 3));</code></pre>
+            <h3>Template Literals</h3>
+            <p>Template literals allow you to create multi-line strings and embed expressions using backticks and ${}. For example:</p>
+            <pre><code>let name = "Alice";
+let message = `Hello, ${name}!`;
+console.log(message);</code></pre>
+            <h3>Destructuring</h3>
+            <p>Destructuring allows you to extract values from arrays and objects into variables. For example:</p>
+            <pre><code>let [a, b] = [1, 2];
+let { name, age } = { name: "John", age: 30 };
+console.log(a, b, name, age);</code></pre>
+            <h3>Modules</h3>
+            <p>Modules allow you to organize your code into reusable components. You can use the export and import keywords to define and use modules. For example:</p>
+            <pre><code>// math.js
+export function add(a, b) {
+    return a + b;
+}
+
+// main.js
+import { add } from "./math.js";
+console.log(add(2, 3));</code></pre>
+        </section>
+        <section id="frameworks">
+            <h2>JavaScript Frameworks</h2>
+            <p>JavaScript frameworks provide a structured way to build web applications, offering tools and libraries to simplify development. Some popular JavaScript frameworks include React, Angular, and Vue.js. In this section, you will learn about the basics of these frameworks and how to get started with them.</p>
+            <h3>React</h3>
+            <p>React is a JavaScript library for building user interfaces. It allows you to create reusable components and manage the state of your application. For example:</p>
+            <pre><code>import React from "react";
+import ReactDOM from "react-dom";
+
+function App() {
+    return <h1>Hello, World!</h1>;
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));</code></pre>
+            <h3>Angular</h3>
+            <p>Angular is a platform for building mobile and desktop web applications. It provides a comprehensive set of tools and features for building complex applications. For example:</p>
+            <pre><code>import { Component } from "@angular/core";
+
+@Component({
+    selector: "app-root",
+    template: "<h1>Hello, World!</h1>"
+})
+export class AppComponent {}</code></pre>
+            <h3>Vue.js</h3>
+            <p>Vue.js is a progressive JavaScript framework for building user interfaces. It is designed to be incrementally adoptable and can be used for both small and large-scale applications. For example:</p>
+            <pre><code>import Vue from "vue";
+
+new Vue({
+    el: "#app",
+    data: {
+        message: "Hello, World!"
+    },
+    template: "<h1>{{ message }}</h1>"
+});</code></pre>
+        </section>
+        <section id="nodejs">
+            <h2>Node.js</h2>
+            <p>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows you to run JavaScript on the server-side, enabling you to build scalable and high-performance web applications. In this section, you will learn about the basics of Node.js and how to create a simple server.</p>
+            <h3>Creating a Simple Server</h3>
+            <p>You can create a simple server using the http module in Node.js. For example:</p>
+            <pre><code>const http = require("http");
+
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "text/plain");
+    res.end("Hello, World!\n");
+});
+
+server.listen(3000, () => {
+    console.log("Server running at http://localhost:3000/");
+});</code></pre>
+            <h3>Using Express.js</h3>
+            <p>Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for building web and mobile applications. For example:</p>
+            <pre><code>const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+    res.send("Hello, World!");
+});
+
+app.listen(3000, () => {
+    console.log("Server running at http://localhost:3000/");
+});</code></pre>
+        </section>
+        <section id="practice">
+            <h2>Practice Problems</h2>
+            <p>Practice problems are essential for reinforcing your understanding of JavaScript concepts. Here are some practice problems to help you improve your skills:</p>
+            <ul>
+                <li>Write a JavaScript program to find the factorial of a number.</li>
+                <li>Write a JavaScript program to check if a number is prime.</li>
+                <li>Write a JavaScript program to reverse a string.</li>
+                <li>Write a JavaScript program to find the largest element
+

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeFusion - Learn C++</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="https://imgur.com/a/PbB69T8" type="image/png">
+    <style>
+        section {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+        section:hover {
+            transform: translateY(-10px);
+            background: #e9e9e9;
+        }
+        h2 {
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            animation: fadeIn 2s ease-in-out;
+        }
+        header h1 {
+            font-size: 3em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            animation: slideIn 1s ease-in-out;
+        }
+        header h1 span {
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+        }
+        header h1 span:hover {
+            transform: scale(1.1);
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        nav li {
+            margin: 0 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        nav a:hover {
+            color: yellow;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        .page-links {
+            background: #e0e0e0;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            white-space: nowrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .page-links a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .page-links a:hover {
+            color: #000;
+            transform: scale(1.1);
+            background-color: #f0f0f0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><span class="contact">Learn</span><span class="Us">C++</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Back</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <div class="page-links">
+        <a href="#intro">Introduction</a>
+        <a href="#basics">C++ Basics</a>
+        <a href="#data-structures">C++ Data Structures</a>
+        <a href="#oop">Object-Oriented Programming</a>
+        <a href="#templates">Templates</a>
+        <a href="#stl">Standard Template Library (STL)</a>
+        <a href="#file-io">File I/O</a>
+        <a href="#exceptions">Exception Handling</a>
+        <a href="#multithreading">Multithreading</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#practice">Practice Problems</a>
+    </div>
+    <main>
+        <section id="intro">
+            <h2>Introduction to C++</h2>
+            <p>C++ is a high-performance programming language often used in system/software development, game development, and competitive programming. It provides fine control over system resources and memory.</p>
+        </section>
+        <section id="basics">
+            <h2>C++ Basics</h2>
+            <p>In this section, we will cover the basics of C++ programming, including variables, data types, operators, and control structures. You will learn how to write simple C++ programs and understand the core concepts of the language.</p>
+            <h3>Variables and Data Types</h3>
+            <p>C++ supports various data types, including int, float, double, char, and bool. Variables are used to store data values. For example:</p>
+            <pre><code>int age = 25;
+double salary = 50000.50;
+char grade = 'A';
+bool isEmployed = true;</code></pre>
+            <h3>Operators</h3>
+            <p>C++ provides various operators for arithmetic, comparison, and logical operations. For example:</p>
+            <pre><code>int sum = 10 + 20;
+bool isEqual = (10 == 20);
+bool isAdult = (age > 18) && isEmployed;</code></pre>
+            <h3>Control Structures</h3>
+            <p>Control structures like if-else, switch, for loop, while loop, and do-while loop are used to control the flow of the program. For example:</p>
+            <pre><code>if (age > 18) {
+    std::cout << "Adult" << std::endl;
+} else {
+    std::cout << "Not an Adult" << std::endl;
+}
+
+for (int i = 0; i < 5; i++) {
+    std::cout << i << std::endl;
+}</code></pre>
+        </section>
+        <section id="data-structures">
+            <h2>C++ Data Structures</h2>
+            <p>Data structures are ways to organize and store data in a computer, enabling efficient access and modification. Different data structures are suited for different types of applications. Some common data structures include:</p>
+            <h3>Arrays</h3>
+            <p>Arrays are collections of elements identified by index. For example:</p>
+            <pre><code>int numbers[] = {1, 2, 3, 4, 5};
+for (int number : numbers) {
+    std::cout << number << std::endl;
+}</code></pre>
+            <h3>Vectors</h3>
+            <p>Vectors are dynamic arrays provided by the Standard Template Library (STL). For example:</p>
+            <pre><code>#include &lt;vector&gt;
+#include &lt;iostream&gt;
+
+int main() {
+    std::vector&lt;int&gt; numbers = {1, 2, 3, 4, 5};
+    for (int number : numbers) {
+        std::cout << number << std::endl;
+    }
+    return 0;
+}</code></pre>
+            <h3>Maps</h3>
+            <p>Maps are collections of key-value pairs provided by the STL. For example:</p>
+            <pre><code>#include &lt;map&gt;
+#include &lt;iostream&gt;
+
+int main() {
+    std::map&lt;std::string, int&gt; ages = {{"John", 25}, {"Jane", 30}, {"Jack", 35}};
+    for (const auto& pair : ages) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+    return 0;
+}</code></pre>
+        </section>
+        <section id="oop">
+            <h2>Object-Oriented Programming</h2>
+            <p>C++ is an object-oriented programming (OOP) language, which means it is based on the concept of objects. In this section, you will learn about classes, objects, inheritance, polymorphism, and encapsulation. These concepts are essential for writing efficient and maintainable C++ code.</p>
+            <h3>Classes and Objects</h3>
+            <p>A class is a blueprint for creating objects. An object is an instance of a class. For example:</p>
+            <pre><code>class Person {
+public:
+    std::string name;
+    int age;
+
+    void display() {
+        std::cout << "Name: " << name << std::endl;
+        std::cout << "Age: " << age << std::endl;
+    }
+};
+
+int main() {
+    Person person;
+    person.name = "John";
+    person.age = 30;
+    person.display();
+    return 0;
+}</code></pre>
+            <h3>Inheritance</h3>
+            <p>Inheritance allows a class to inherit properties and methods from another class. For example:</p>
+            <pre><code>class Animal {
+public:
+    void eat() {
+        std::cout << "Eating..." << std::endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void bark() {
+        std::cout << "Barking..." << std::endl;
+    }
+};
+
+int main() {
+    Dog dog;
+    dog.eat();
+    dog.bark();
+    return 0;
+}</code></pre>
+            <h3>Polymorphism</h3>
+            <p>Polymorphism allows methods to have different implementations based on the object that is calling them. For example:</p>
+            <pre><code>class Animal {
+public:
+    virtual void sound() {
+        std::cout << "Animal sound" << std::endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void sound() override {
+        std::cout << "Bark" << std::endl;
+    }
+};
+
+int main() {
+    Animal* animal = new Dog();
+    animal->sound();
+    delete animal;
+    return 0;
+}</code></pre>
+            <h3>Encapsulation</h3>
+            <p>Encapsulation is the process of wrapping data and methods into a single unit (class). It helps to protect data from unauthorized access. For example:</p>
+            <pre><code>class Person {
+private:
+    std::string name;
+    int age;
+
+public:
+    std::string getName() {
+        return name;
+    }
+
+    void setName(const std::string& name) {
+        this->name = name;
+    }
+
+    int getAge() {
+        return age;
+    }
+
+    void setAge(int age) {
+        this->age = age;
+    }
+};
+
+int main() {
+    Person person;
+    person.setName("John");
+    person.setAge(30);
+    std::cout << person.getName() << std::endl;
+    std::cout << person.getAge() << std::endl;
+    return 0;
+}</code></pre>
+        </section>
+        <section id="templates">
+            <h2>Templates</h2>
+            <p>Templates allow you to write generic programs that can work with any data type. For example:</p>
+            <pre><code>template &lt;typename T&gt;
+T add(T a, T b) {
+    return a + b;
+}
+
+int main() {
+    std::cout << add(5, 3) << std::endl;
+    std::cout << add(2.5, 1.5) << std::endl;
+    return 0;
+}</code></pre>
+        </section>
+        <section id="stl">
+            <h2>Standard Template Library (STL)</h2>
+            <p>The Standard Template Library (STL) provides a set of common data structures and algorithms. For example:</p>
+            <h3>Vectors</h3>
+            <pre><code>#include &lt;vector&gt;
+#include &lt;iostream&gt;
+
+int main() {
+    std::vector&lt;int&gt; numbers = {1, 2, 3, 4, 5};
+    for (int number : numbers) {
+        std::cout << number << std::endl;
+    }
+    return 0;
+}</code></pre>
+            <h3>Maps</h3>
+            <pre><code>#include &lt;map&gt;
+#include &lt;iostream&gt;
+
+int main() {
+    std::map&lt;std::string, int&gt; ages = {{"John", 25}, {"Jane", 30}, {"Jack", 35}};
+    for (const auto& pair : ages) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+    return 0;
+}</code></pre>
+        </section>
+        <section id="file-io">
+            <h2>File I/O</h2>
+            <p>File I/O (Input/Output) is used to read from and write to files. For example:</p>
+            <pre><code>#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+
+int main() {
+    std::ofstream outFile("output.txt");
+    outFile &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    outFile.close();
+
+    std::ifstream inFile("output.txt");
+    std::string content;
+    while (std::getline(inFile, content)) {
+        std::cout << content << std::endl;
+    }
+    inFile.close();
+    return 0;
+}</code></pre>
+        </section>
+        <section id="exceptions">
+            <h2>Exception Handling</h2>
+            <p>Exception handling is used to handle runtime errors and maintain the normal flow of the application. For example:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;stdexcept&gt;
+
+int main() {
+    try {
+        int result = 10 / 0;
+    } catch (const std::runtime_error& e) {
+        std::cout << "Runtime error: " << e.what() << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    return 0;
+}</code></pre>
+        </section>
+        <section id="multithreading">
+            <h2>Multithreading</h2>
+            <p>Multithreading allows concurrent execution of two or more threads. For example:</p>
+            <pre><code>#include &lt;thread&gt;
+#include &lt;iostream&gt;
+
+void printNumbers() {
+    for (int i = 0; i < 5; i++) {
+        std::cout << i << std::endl;
+    }
+}
+
+int main() {
+    std::thread thread1(printNumbers);
+    std::thread thread2(printNumbers);
+    thread1.join();
+    thread2.join();
+    return 0;
+}</code></pre>
+        </section>
+        <section id="advanced">
+            <h2>Advanced Topics</h2>
+            <p>In the advanced topics section, we will explore more complex C++ concepts, such as smart pointers, lambda expressions, and the C++ Standard Library. These topics will help you develop more sophisticated C++ applications and prepare you for real-world programming challenges.</p>
+            <h3>Smart Pointers</h3>
+            <p>Smart pointers are used to manage the lifetime of dynamically allocated objects. For example:</p>
+            <pre><code>#include &lt;memory&gt;
+#include &lt;iostream&gt;
+
+int main() {
+    std::unique_ptr&lt;int&gt; ptr = std::make_unique&lt;int&gt;(10);
+    std::cout << *ptr << std::endl;
+    return 0;
+}</code></pre>
+            <h3>Lambda Expressions</h3>
+            <p>Lambda expressions are used to create anonymous functions. For example:</p>
+            <pre><code>#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+
+int main() {
+    std::vector&lt;int&gt; numbers = {1, 2, 3, 4, 5};
+    std::for_each(numbers.begin(), numbers.end(), [](int number) {
+        std::cout << number << std::endl;
+    });
+    return 0;
+}</code></pre>
+            <h3>C++ Standard Library</h3>
+            <p>The C++ Standard Library provides a set of common data structures and algorithms. For example:</p>
+            <pre><code>#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+
+int main() {
+    std::vector&lt;int&gt; numbers = {5, 3, 1, 4, 2};
+    std::sort(numbers.begin(), numbers.end());
+    for (int number : numbers) {
+        std::cout << number << std::endl;
+    }
+    return 0;
+}</code></pre>
+        </section>
+        <section id="practice">
+            <h2>Practice Problems</h2>
+            <p>Practice problems are essential for reinforcing your understanding of C++ concepts. Here are some practice problems to help you improve your skills:</p>
+            <ul>
+                <li>Write a C++ program to find the factorial of a number.</li>
+                <li>Write a C++ program to check if a number is prime.</li>
+                <li>Write a C++ program to reverse a string.</li>
+                <li>Write a C++ program to find the largest element in an array.</li>
+                <li>Write a C++ program to implement a simple calculator.</li>
+            </ul>
+        </section>
+    </main>
+    <script src="web.js"></script>
+</body>
+</html>

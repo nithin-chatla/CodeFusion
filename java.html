@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeFusion - Learn Java</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="https://imgur.com/a/PbB69T8" type="image/png">
+    <style>
+        section {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+        section:hover {
+            transform: translateY(-10px);
+            background: #e9e9e9;
+        }
+        h2 {
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            animation: fadeIn 2s ease-in-out;
+        }
+        header h1 {
+            font-size: 3em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            animation: slideIn 1s ease-in-out;
+        }
+        header h1 span {
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+        }
+        header h1 span:hover {
+            transform: scale(1.1);
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        nav li {
+            margin: 0 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        nav a:hover {
+            color: yellow;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        .page-links {
+            background: #e0e0e0;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            white-space: nowrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .page-links a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .page-links a:hover {
+            color: #000;
+            transform: scale(1.1);
+            background-color: #f0f0f0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .ai-helper {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out;
+        }
+        .ai-helper:hover {
+            background-color: #333;
+        }
+        .ai-popup {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 400px;
+            height: 600px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .ai-popup iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+        .ai-popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><span class="contact">Learn</span><span class="Us">Java</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="page-links">
+        <a href="#intro">Introduction</a>
+        <a href="#basics">Java Basics</a>
+        <a href="#oop">Object-Oriented Programming</a>
+        <a href="#data-structures">Java Data Structures</a>
+        <a href="#exception-handling">Exception Handling</a>
+        <a href="#io">Java Input/Output (I/O)</a>
+        <a href="#multithreading">Multithreading</a>
+        <a href="#collections">Java Collections Framework</a>
+        <a href="#generics">Java Generics</a>
+        <a href="#networking">Java Networking</a>
+        <a href="#jdbc">Java Database Connectivity (JDBC)</a>
+        <a href="#memory-management">Java Memory Management</a>
+        <a href="#javafx">JavaFX (for GUI applications)</a>
+        <a href="#annotations">Java Annotations</a>
+        <a href="#java8">Java 8 and Beyond Features</a>
+        <a href="#advanced">Advanced Topics</a>
+        <a href="#practice">Practice Problems</a>
+        <a href="#testing">Testing</a>
+        <a href="#web-development">Web Development</a>
+        <a href="#data-science">Data Science</a>
+        <a href="#machine-learning">Machine Learning</a>
+        <a href="#automation">Automation</a>
+        <a href="#web-scraping">Web Scraping</a>
+    </div>
+    <main>
+        <section id="intro">
+            <h2>Introduction to Java</h2>
+            <p>Java is a high-level, object-oriented programming language developed by Sun Microsystems in 1995. Renowned for its platform independence, Java applications are compiled into bytecode that can run on any system with a Java Virtual Machine (JVM). This "write once, run anywhere" capability has made it a popular choice for building cross-platform applications. Java's syntax is similar to C++, but it eliminates many of the complexities of C++ such as pointers and multiple inheritance, making it easier to learn and use. Java is widely used in web development, mobile applications (especially Android), enterprise software, and large systems development. The language boasts a rich API and a vast ecosystem of libraries and frameworks, enabling developers to build robust and scalable applications. Its strong memory management, security features, and multi-threading capabilities have made Java a go-to choice for critical and high-performance applications. The Java community is vibrant, with extensive documentation, forums, and third-party resources that support developers in their projects. Regular updates by Oracle ensure Java remains modern, secure, and relevant in the ever-evolving tech landscape. Overall, Java's versatility, reliability, and active community make it a cornerstone of modern programming.</p>
+        </section>
+        <section id="basics">
+            <h2>Java Basics</h2>
+            <p>In this section, we will cover the basics of Java programming, including variables, data types, operators, and control structures. You will learn how to write simple Java programs and understand the core concepts of the language.</p>
+            <h3>Variables and Data Types</h3>
+            <p>Java supports various data types, including int, float, double, char, and boolean. Variables are used to store data values. For example:</p>
+            <pre><code>int age = 25;
+double salary = 50000.50;
+char grade = 'A';
+boolean isEmployed = true;</code></pre>
+            <h3>Operators</h3>
+            <p>Java provides various operators for arithmetic, comparison, and logical operations. For example:</p>
+            <pre><code>int sum = 10 + 20;
+boolean isEqual = (10 == 20);
+boolean isAdult = (age > 18) && isEmployed;</code></pre>
+            <h3>Control Structures</h3>
+            <p>Control structures like if-else, switch, for loop, while loop, and do-while loop are used to control the flow of the program. For example:</p>
+            <pre><code>if (age > 18) {
+    System.out.println("Adult");
+} else {
+    System.out.println("Not an Adult");
+}
+
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}</code></pre>
+        </section>
+        <section id="oop">
+            <h2>Object-Oriented Programming</h2>
+            <p>Java is an object-oriented programming (OOP) language, which means it is based on the concept of objects. In this section, you will learn about classes, objects, inheritance, polymorphism, and encapsulation. These concepts are essential for writing efficient and maintainable Java code.</p>
+            <h3>Classes and Objects</h3>
+            <p>A class is a blueprint for creating objects. An object is an instance of a class. For example:</p>
+            <pre><code>class Person {
+    String name;
+    int age;
+
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.name = "John";
+        person.age = 30;
+        person.display();
+    }
+}</code></pre>
+            <h3>Inheritance</h3>
+            <p>Inheritance allows a class to inherit properties and methods from another class. For example:</p>
+            <pre><code>class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();
+        dog.bark();
+    }
+}</code></pre>
+            <h3>Polymorphism</h3>
+            <p>Polymorphism allows methods to have different implementations based on the object that is calling them. For example:</p>
+            <pre><code>class Animal {
+    void sound() {
+        System.out.println("Animal sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Bark");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Dog();
+        animal.sound();
+    }
+}</code></pre>
+            <h3>Encapsulation</h3>
+            <p>Encapsulation is the process of wrapping data and methods into a single unit (class). It helps to protect data from unauthorized access. For example:</p>
+            <pre><code>class Person {
+    private String name;
+    private int age;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}</code></pre>
+        </section>
+        <section id="data-structures">
+            <h2>Java Data Structures</h2>
+            <p>Data structures are ways to organize and store data in a computer, enabling efficient access and modification. Different data structures are suited for different types of applications. Some common data structures include:</p>
+            <h3>Arrays</h3>
+            <p>Arrays are collections of elements identified by index or key. For example:</p>
+            <pre><code>int[] numbers = {1, 2, 3, 4, 5};
+for (int number : numbers) {
+    System.out.println(number);
+}</code></pre>
+            <h3>ArrayList</h3>
+            <p>ArrayList is a resizable array implementation of the List interface. For example:</p>
+            <pre><code>import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<String> names = new ArrayList<>();
+        names.add("John");
+        names.add("Jane");
+        names.add("Jack");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}</code></pre>
+            <h3>LinkedList</h3>
+            <p>LinkedList is a doubly-linked list implementation of the List and Deque interfaces. For example:</p>
+            <pre><code>import java.util.LinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedList<String> names = new LinkedList<>();
+        names.add("John");
+        names.add("Jane");
+        names.add("Jack");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}</code></pre>
+            <h3>HashMap</h3>
+            <p>HashMap is a hash table-based implementation of the Map interface. For example:</p>
+            <pre><code>import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        HashMap<String, Integer> ages = new HashMap<>();
+        ages.put("John", 25);
+        ages.put("Jane", 30);
+        ages.put("Jack", 35);
+        for (String name : ages.keySet()) {
+            System.out.println(name + ": " + ages.get(name));
+        }
+    }
+}</code></pre>
+            <h3>HashSet</h3>
+            <p>HashSet is a hash table-based implementation of the Set interface. For example:</p>
+            <pre><code>import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+        HashSet<String> names = new HashSet<>();
+        names.add("John");
+        names.add("Jane");
+        names.add("Jack");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}</code></pre>
+            <h3>TreeMap</h3>
+            <p>TreeMap is a Red-Black tree-based implementation of the Map interface. For example:</p>
+            <pre><code>import java.util.TreeMap;
+
+public class Main {
+    public static void main(String[] args) {
+        TreeMap<String, Integer> ages = new TreeMap<>();
+        ages.put("John", 25);
+        ages.put("Jane", 30);
+        ages.put("Jack", 35);
+        for (String name : ages.keySet()) {
+            System.out.println(name + ": " + ages.get(name));
+        }
+    }
+}</code></pre>
+            <h3>TreeSet</h3>
+            <p>TreeSet is a NavigableSet implementation based on a TreeMap. For example:</p>
+            <pre><code>import java.util.TreeSet;
+
+public class Main {
+    public static void main(String[] args) {
+        TreeSet<String> names = new TreeSet<>();
+        names.add("John");
+        names.add("Jane");
+        names.add("Jack");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}</code></pre>
+        </section>
+        <section id="exception-handling">
+            <h2>Exception Handling</h2>
+            <p>Exception handling is used to handle runtime errors and maintain the normal flow of the application. For example:</p>
+            <pre><code>try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Cannot divide by zero");
+} finally {
+    System.out.println("This block always executes");
+}</code></pre>
+        </section>
+        <section id="io">
+            <h2>Java Input/Output (I/O)</h2>
+            <p>File I/O (Input/Output) is used to read from and write to files. For example:</p>
+            <pre><code>import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileWriter writer = new FileWriter("output.txt");
+            writer.write("Hello, World!");
+            writer.close();
+
+            FileReader reader = new FileReader("output.txt");
+            int character;
+            while ((character = reader.read()) != -1) {
+                System.out.print((char) character);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+        </section>
+        <section id="multithreading">
+            <h2>Multithreading</h2>
+            <p>Multithreading allows concurrent execution of two or more threads. For example:</p>
+            <pre><code>class MyThread extends Thread {
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread thread1 = new MyThread();
+        MyThread thread2 = new MyThread();
+        thread1.start();
+        thread2.start();
+    }
+}</code></pre>
+        </section>
+        <section id="collections">
+            <h2>Java Collections Framework</h2>
+            <p>The Java Collections Framework provides a set of interfaces and classes for storing and manipulating groups of data as a single unit. Some common collection classes include:</p>
+            <h3>ArrayList</h3>
+            <p>ArrayList is a resizable array implementation of the List interface. For example:</p>
+            <pre><code>import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<String> names = new ArrayList<>();
+        names.add("John");
+        names.add("Jane");
+        names.add("Jack");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}</code></pre>
+            <h3>HashSet</h3>
+            <p>HashSet is a hash table-based implementation of the Set interface. For example:</p>
+            <pre><code>import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+        HashSet<String> names = new HashSet<>();
+        names.add("John");
+        names.add("Jane");
+        names.add("Jack");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}</code></pre>
+            <h3>HashMap</h3>
+            <p>HashMap is a hash table-based implementation of the Map interface. For example:</p>
+            <pre><code>import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        HashMap<String, Integer> ages = new HashMap<>();
+        ages.put("John", 25);
+        ages.put("Jane", 30);
+        ages.put("Jack", 35);
+        for (String name : ages.keySet()) {
+            System.out.println(name + ": " + ages.get(name));
+        }
+    }
+}</code></pre>
+        </section>
+        <section id="generics">
+            <h2>Java Generics</h2>
+            <p>Generics enable types (classes and interfaces) to be parameters when defining classes, interfaces, and methods. For example:</p>
+            <pre><code>import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<String> names = new ArrayList<>();
+        names.add("John");
+        names.add("Jane");
+        names.add("Jack");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}</code></pre>
+        </section>
+        <section id="networking">
+            <h2>Java Networking</h2>
+            <p>Networking in Java is used to connect two or more devices to share resources. For example:</p>
+            <pre><code>import java.io.*;
+import java.net.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            ServerSocket serverSocket = new ServerSocket(5000);
+            Socket socket = serverSocket.accept();
+            DataInputStream input = new DataInputStream(socket.getInputStream());
+            System.out.println("Message from client: " + input.readUTF());
+            serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+        </section>
+        <section id="jdbc">
+            <h2>Java Database Connectivity (JDBC)</h2>
+            <p>JDBC is an API for connecting and executing queries on a database. For example:</p>
+            <pre><code>import java.sql.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase", "username", "password");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+            while (resultSet.next()) {
+                System.out.println("User: " + resultSet.getString("username"));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+        </section>
+        <section id="memory-management">
+            <h2>Java Memory Management</h2>
+            <p>Memory management in Java involves garbage collection, which automatically deallocates memory that is no longer in use. For example:</p>
+            <pre><code>public class Main {
+    public static void main(String[] args) {
+        Runtime runtime = Runtime.getRuntime();
+        System.out.println("Total Memory: " + runtime.totalMemory());
+        System.out.println("Free Memory: " + runtime.freeMemory());
+        runtime.gc();
+        System.out.println("Free Memory after GC: " + runtime.freeMemory());
+    }
+}</code></pre>
+        </section>
+        <section id="javafx">
+            <h2>JavaFX (for GUI applications)</h2>
+            <p>JavaFX is a software platform for creating and delivering desktop applications. For example:</p>
+            <pre><code>import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+    @Override
+    public void start(Stage primaryStage) {
+        Button btn = new Button();
+        btn.setText("Say 'Hello World'");
+        btn.setOnAction(event -> System.out.println("Hello World!"));
+
+        StackPane root = new StackPane();
+        root.getChildren().add(btn);
+
+        Scene scene = new Scene(root, 300, 250);
+
+        primaryStage.setTitle("Hello World!");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}</code></pre>
+        </section>
+        <section id="annotations">
+            <h2>Java Annotations</h2>
+            <p>Annotations provide metadata about the program and are used to provide information to the compiler. For example:</p>
+            <pre><code>public class Main {
+    @Override
+    public String toString() {
+        return "Main class";
+    }
+
+    @Deprecated
+    public void oldMethod() {
+        System.out.println("This method is deprecated");
+    }
+
+    public static void main(String[] args) {
+        Main main = new Main();
+        System.out.println(main.toString());
+        main.oldMethod();
+    }
+}</code></pre>
+        </section>
+        <section id="java8">
+            <h2>Java 8 and Beyond Features</h2>
+            <p>Java 8 introduced several new features, including lambda expressions, the Stream API, and the Optional class. For example:</p>
+            <h3>Lambda Expressions</h3>
+            <pre><code>import java.util.Arrays;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("John", "Jane", "Jack");
+        names.forEach(name -> System.out.println(name));
+    }
+}</code></pre>
+            <h3>Stream API</h3>
+            <pre><code>import java.util.Arrays;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("John", "Jane", "Jack");
+        names.stream()
+             .filter(name -> name.startsWith("J"))
+             .forEach(System.out::println);
+    }
+}</code></pre>
+            <h3>Optional Class</h3>
+            <pre><code>import java.util.Optional;
+
+public class Main {
+    public static void main(String[] args) {
+        Optional<String> name = Optional.of("John");
+        name.ifPresent(System.out::println);
+    }
+}</code></pre>
+            <h3>New Date and Time API</h3>
+            <pre><code>import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+
+public class Main {
+    public static void main(String[] args) {
+        LocalDate date = LocalDate.now();
+        LocalTime time = LocalTime.now();
+        LocalDateTime dateTime = LocalDateTime.now();
+
+        System.out.println("Current Date: " + date);
+        System.out.println("Current Time: " + time);
+        System.out.println("Current Date and Time: " + dateTime);
+    }
+}</code></pre>
+        </section>
+        <section id="advanced">
+            <h2>Advanced Topics</h2>
+            <p>In the advanced topics section, we will explore more complex Java concepts, such as reflection, unit testing, build tools, design patterns, and the Java Modules System. These topics will help you develop more sophisticated Java applications and prepare you for real-world programming challenges.</p>
+            <h3>Reflection</h3>
+            <p>Reflection allows you to inspect and manipulate classes, methods, and fields at runtime. For example:</p>
+            <pre><code>import java.lang.reflect.Method;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Class<?> cls = Class.forName("java.lang.String");
+            Method[] methods = cls.getDeclaredMethods();
+            for (Method method : methods) {
+                System.out.println(method.getName());
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+            <h3>JUnit and TestNG for Unit Testing</h3>
+            <p>JUnit and TestNG are popular frameworks for unit testing in Java. For example, using JUnit:</p>
+            <pre><code>import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class MainTest {
+    @Test
+    public void testAddition() {
+        assertEquals(5, 2 + 3);
+    }
+}</code></pre>
+            <h3>Build Tools (Maven, Gradle)</h3>
+            <p>Maven and Gradle are build automation tools used for managing dependencies and building projects. For example, a simple Maven project structure:</p>
+            <pre><code>&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    &lt;modelVersion>4.0.0&lt;/modelVersion>
+    &lt;groupId>com.example&lt;/groupId>
+    &lt;artifactId>my-app&lt;/artifactId>
+    &lt;version>1.0-SNAPSHOT&lt;/version>
+    &lt;dependencies>
+        &lt;dependency>
+            &lt;groupId>junit&lt;/groupId>
+            &lt;artifactId>junit&lt;/artifactId>
+            &lt;version>4.12&lt;/version>
+            &lt;scope>test&lt;/scope>
+        &lt;/dependency>
+    &lt;/dependencies>
+&lt;/project></code></pre>
+            <h3>Design Patterns</h3>
+            <p>Design patterns are typical solutions to common problems in software design. For example, the Singleton pattern:</p>
+            <pre><code>public class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}</code></pre>
+            <h3>Java Modules System</h3>
+            <p>The Java Modules System, introduced in Java 9, allows you to modularize your applications. For example:</p>
+            <pre><code>module com.example.myapp {
+    requires java.base;
+}</code></pre>
+        </section>
+        <section id="practice">
+            <h2>Practice Problems</h2>
+            <p>Practice problems are essential for reinforcing your understanding of Java concepts. Here are some practice problems to help you improve your skills:</p>
+            <ul>
+                <li>Write a Java program to find the factorial of a number.</li>
+                <li>Write a Java program to check if a number is prime.</li>
+                <li>Write a Java program to reverse a string.</li>
+                <li>Write a Java program to find the largest element in an array.</li>
+                <li>Write a Java program to implement a simple calculator.</li>
+            </ul>
+        </section>
+        <section id="testing">
+            <h2>Testing</h2>
+            <p>Testing is an essential part of software development. Java provides frameworks like JUnit and TestNG for writing and running tests. Mocking and patching are techniques used to simulate objects and control their behavior during testing.</p>
+            <pre><code># JUnit
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class MainTest {
+    @Test
+    public void testAddition() {
+        assertEquals(5, 2 + 3);
+    }
+}</code></pre>
+        </section>
+
+        <section id="web-development">
+            <h2>Web Development</h2>
+            <p>Java is widely used for web development, with frameworks like Spring and JavaServer Faces (JSF) providing powerful tools for building web applications. Spring is a comprehensive framework that includes support for dependency injection, transaction management, and web services, while JSF is a component-based framework for building user interfaces.</p>
+            <pre><code># Spring Boot
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+
+@RestController
+class HelloController {
+    @GetMapping("/")
+    public String home() {
+        return "Hello, World!";
+    }
+}</code></pre>
+        </section>
+
+        <section id="data-science">
+            <h2>Data Science</h2>
+            <p>Java is a popular language for data science, with libraries like Apache Commons Math, Weka, and Deeplearning4j providing tools for data manipulation, analysis, and machine learning.</p>
+            <pre><code># Apache Commons Math
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+
+public class Main {
+    public static void main(String[] args) {
+        DescriptiveStatistics stats = new DescriptiveStatistics();
+        stats.addValue(1);
+        stats.addValue(2);
+        stats.addValue(3);
+        System.out.println("Mean: " + stats.getMean());
+    }
+}</code></pre>
+        </section>
+
+        <section id="machine-learning">
+            <h2>Machine Learning</h2>
+            <p>Java is widely used for machine learning, with libraries like Weka and Deeplearning4j providing tools for building and training machine learning models.</p>
+            <pre><code># Weka
+import weka.classifiers.Classifier;
+import weka.classifiers.trees.J48;
+import weka.core.Instances;
+import weka.core.converters.ConverterUtils.DataSource;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        DataSource source = new DataSource("data.arff");
+        Instances data = source.getDataSet();
+        data.setClassIndex(data.numAttributes() - 1);
+
+        Classifier classifier = new J48();
+        classifier.buildClassifier(data);
+        System.out.println(classifier);
+    }
+}</code></pre>
+        </section>
+
+        <section id="automation">
+            <h2>Automation</h2>
+            <p>Java is an excellent language for scripting and automation. You can write scripts to automate repetitive tasks, such as file manipulation, data processing, and system administration.</p>
+            <pre><code># File Manipulation
+import java.io.File;
+
+public class Main {
+    public static void main(String[] args) {
+        File oldFile = new File("old.txt");
+        File newFile = new File("new.txt");
+        oldFile.renameTo(newFile);
+        newFile.delete();
+    }
+}
+
+# Data Processing
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("data.csv"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+# System Administration
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Process process = Runtime.getRuntime().exec("ls -l");
+            process.waitFor();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+        </section>
+
+        <section id="web-scraping">
+            <h2>Web Scraping</h2>
+            <p>Java provides libraries for web scraping, such as Jsoup and HtmlUnit. These tools enable you to extract and process data from websites.</p>
+            <pre><code># Jsoup
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Document doc = Jsoup.connect("https://example.com").get();
+        System.out.println(doc.title());
+    }
+}
+
+# HtmlUnit
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        try (WebClient webClient = new WebClient()) {
+            HtmlPage page = webClient.getPage("https://example.com");
+            System.out.println(page.getTitleText());
+        }
+    }
+}</code></pre>
+        </section>
+    </main>
+    <script src="web.js"></script>
+    <script>
+        document.querySelector('.ai-helper').addEventListener('click', function() {
+            document.querySelector('.ai-popup').style.display = 'block';
+        });
+        document.querySelector('.ai-popup-close').addEventListener('click', function() {
+            document.querySelector('.ai-popup').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

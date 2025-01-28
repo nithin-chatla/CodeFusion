@@ -1,0 +1,549 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #000;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    h1 {
+        font-size: 3em;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        animation: slideIn 1s ease-in-out;
+        span{
+            size-adjust: 10px;
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+        }
+        span:hover {
+            transform: scale(1.1);
+        }
+    }
+    .code {
+        color: yellow
+    }
+    .contact {
+        color: yellow
+    }
+    .Our{
+        color: yellow;
+    }
+    .About{
+        color: yellow;
+    }
+    .fusion{
+        color: White;
+    }
+  
+ }
+
+header img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    animation: fadeIn 2s ease-in-out;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.page-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-height: 100%; /* Adjust height based on content */
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+}
+
+.page-links a {
+    margin: 5px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.page-links a:hover {
+    color: #000;
+    transform: scale(1.1);
+    background-color: #f0f0f0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgb(255, 0, 212);
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: translateY(-10px);
+    background: #ff00bf;
+}
+
+h2 {
+    color: #7550b9;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    animation: infinite 2s flip;
+}
+
+p {
+    line-height: 1.6;
+    text-align : start;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin: 0.5rem 0 0.5rem;
+}
+
+input, textarea {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: 0.7rem 1.2rem;
+    background-color: #000080;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* From Uiverse.io by SouravBandyopadhyay */ 
+.notification {
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    position: relative;
+    width: 18rem;
+    height: 8rem;
+    background: #29292c;
+    border-radius: 1rem;
+    overflow: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7e61ff);
+    --color: #32a6ff
+  }
+  
+  .notification:before {
+    position: absolute;
+    content: "";
+    inset: 0.0625rem;
+    border-radius: 0.9375rem;
+    background: #18181b;
+    z-index: 2
+  }
+  
+  .notification:after {
+    position: absolute;
+    content: "";
+    width: 0.25rem;
+    inset: 0.65rem auto 0.65rem 0.5rem;
+    border-radius: 0.125rem;
+    background: var(--gradient);
+    transition: transform 300ms ease;
+    z-index: 4;
+  }
+  
+  .notification:hover:after {
+    transform: translateX(0.15rem);
+    transition:var (--gradient);
+
+  }
+  
+  .notititle {
+    color: var (--color);
+    padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: transform 300ms ease;
+    z-index: 5;
+  }
+  
+  .notification:hover .notititle {
+    transform: translateX(0.15rem)
+  }
+  
+  .notibody {
+    color: #99999d;
+    padding: 0 1.25rem;
+    transition: transform 300ms ease;
+    z-index: 5;
+  }
+  
+  .notification:hover .notibody {
+    transform: translateX(0.25rem)
+
+  }
+  
+  .notiglow,
+  .notiborderglow {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle closest-side at center, white, transparent);
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+  
+  .notiglow {
+    z-index: 3;
+  }
+  
+  .notiborderglow {
+    z-index: 1;
+  }
+  
+  .notification:hover .notiglow {
+    opacity: 0.1
+  }
+  
+  .notification:hover .notiborderglow {
+    opacity: 0.1
+  }
+  
+  .note {
+    color: var(--color);
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 0.9rem;
+    width: 75%;
+  }
+  .box.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+    padding: px;
+    display: inline-block;
+  }
+    .box {
+        width: 150px;
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+        font-size: 16px;
+        padding: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out,box-shadow 0.2s ease;
+        box-sizing: border-box;
+        text-align: center;
+        position: relative;
+
+        overflow: hidden;
+        animation: boxEnter 0.5s ease-in-out;
+    }
+.box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(45deg, #f00, #0f0, #00f, #f00);
+    background-size: 400%;
+    transition: 0.5s;
+    z-index: -1;
+}
+.box-title {
+    font-size: bold;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.box-info {
+    font-size: 14px;
+   color: turquoise;
+}.box:active {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px white;
+}
+@media (max-width: 768px) {
+    .box {
+        width: 100%;
+        height: 150px;
+    }
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    display: inline;
+}
+
+.box {
+    margin: 5px;
+    display: inline;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: #000000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+/* ...existing code... */
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* ...existing code... */
+
+/* General styles for the body */
+
+header img {
+    height: 50px;
+    margin-right: 1rem;
+}
+
+header h1 {
+    flex-grow: 1;
+    margin: 0;
+}
+
+/* Styles for the navigation menu */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    animation: alternate ;
+    nav-index: auto;
+    text-transform: uppercase;
+    
+}
+
+/* Styles for the main content */
+main {
+    padding: 2rem;
+}
+
+/* Styles for each section */
+section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #090dff;
+}
+
+/* Styles for lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    background-position: relative;
+}
+
+a:hover {
+    color: rgb(255, 166, 0); 
+    animation: infinite 2s flip;
+    animation-fill-mode: both;
+    margin: auto;
+    transition: all;
+}
+
+/* Styles for the contact form */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin: 0.5rem 0 0.2rem;
+}
+
+input, textarea {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+textarea:hover {
+    border: 1px solid #cacaca;
+    border-radius: 25px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.5s;
+    align-items: flex-end;
+
+
+}
+
+button {
+    padding: 0.7rem 1.2rem;
+    background-color: #090dff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+button:hover {
+    background-color: #ff00d4;
+    animation-duration: 2s;
+    animation-name: pop;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes boxEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ...existing code... */
+
